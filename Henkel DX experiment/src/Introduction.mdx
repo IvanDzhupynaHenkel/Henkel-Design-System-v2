@@ -1,0 +1,218 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+<div style={{ fontFamily: 'Inter, system-ui, sans-serif', maxWidth: '780px', margin: '0 auto', padding: '40px 24px', color: '#1a1a1a' }}>
+
+<div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px' }}>
+  <div style={{ width: '48px', height: '48px', background: '#e2001a', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, fontSize: '20px' }}>H</div>
+  <div>
+    <h1 style={{ margin: 0, fontSize: '28px', fontWeight: 700, lineHeight: 1.2 }}>Henkel DX Design System</h1>
+    <p style={{ margin: 0, color: '#8a8a8a', fontSize: '14px' }}>@henkel-dx/ds · v0.1.0</p>
+  </div>
+</div>
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## Getting Started
+
+The Henkel DX Design System is a React component library with built-in design tokens. Install it once and use consistent, accessible UI across all Henkel DX products.
+
+### Installation
+
+```bash
+npm install @henkel-dx/ds
+```
+
+### Setup
+
+Import the stylesheet **once** in your app entry point (e.g. `main.tsx` or `App.tsx`):
+
+```tsx
+// main.tsx
+import '@henkel-dx/ds/styles';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
+```
+
+That's it. No theme providers, no wrappers — the design tokens load as CSS custom properties on `:root`.
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## Using Components
+
+Import components directly from the package. Everything is tree-shakeable — your bundle only includes what you use.
+
+```tsx
+import { Button, Input, StatusBadge } from '@henkel-dx/ds';
+
+export function CreateRecordForm() {
+  return (
+    <form>
+      <Input
+        label="Data source name"
+        placeholder="Enter a name…"
+        required
+      />
+      <StatusBadge status="draft" />
+      <Button variant="primary">Continue with Ontology</Button>
+      <Button variant="secondary">Save as Draft</Button>
+      <Button variant="tertiary">Cancel</Button>
+    </form>
+  );
+}
+```
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## Available Components
+
+| Component | Import | Description |
+|-----------|--------|-------------|
+| `Button` | `{ Button }` | Primary actions. 5 variants + loading + icon |
+| `StatusBadge` | `{ StatusBadge }` | Workflow status indicator (draft, in-progress…) |
+| `CountBadge` | `{ CountBadge }` | Numeric count pill |
+| `Input` | `{ Input }` | Text field. 6 states including error + search |
+| `Tabs` | `{ Tabs }` | Horizontal tab navigation |
+| `Stepper` | `{ Stepper }` | Multi-step progress indicator |
+| `ProgressBar` | `{ ProgressBar }` | Linear progress with optional label |
+| `FileUpload` | `{ FileUpload }` | Drag-and-drop file zone |
+| `DataRecordCard` | `{ DataRecordCard }` | Data record row with status + action |
+| `Table` | `{ Table }` | Data table with sortable columns |
+| `Modal` | `{ Modal, ModalActions }` | Dialog overlay with optional stepper |
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## Design Tokens
+
+All visual values are exposed as CSS custom properties. Use them directly in your own styles to stay consistent with the system.
+
+```css
+.my-custom-card {
+  background-color: var(--color-surface-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-8);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+}
+
+.my-custom-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-soft-blue-dark);
+}
+```
+
+### Key token groups
+
+**Colors**
+```
+--color-henkel-red       #e2001a   Primary brand color
+--color-dark-blue        #003669   Secondary brand color
+--color-bright-blue      #0085c7   Links and focus rings
+
+--color-text-primary     Black     Main body text
+--color-text-secondary   #4a4a4a   Secondary text
+--color-text-muted       #8a8a8a   Placeholders, captions
+
+--color-feedback-success #27ae60   Success state
+--color-feedback-warning #f5a623   Warning / Draft state
+--color-feedback-error   #eb5757   Error state
+```
+
+**Spacing** (use these instead of hardcoded px values)
+```
+--spacing-3   8px     Tight gap between related elements
+--spacing-6   16px    Default inner padding
+--spacing-8   24px    Card padding
+--spacing-9   32px    Section gap
+```
+
+**Typography**
+```
+--font-size-h1      32px   Page titles
+--font-size-h2      24px   Section headings
+--font-size-body    16px   Body copy
+--font-size-label   14px   Form labels, table cells
+--font-size-caption 12px   Helper text, badges
+```
+
+You can also import tokens as a JavaScript object for use in CSS-in-JS:
+
+```tsx
+import { tokens } from '@henkel-dx/ds';
+
+const style = {
+  color: tokens.color.brand.henkelRed,
+  padding: tokens.spacing[6],
+};
+```
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## TypeScript
+
+All components ship with full TypeScript types — no `@types/` package needed.
+
+```tsx
+import { Button, ButtonVariant, ButtonSize } from '@henkel-dx/ds';
+
+interface ActionBarProps {
+  variant?: ButtonVariant;   // 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'ghost'
+  size?: ButtonSize;         // 'sm' | 'md' | 'lg'
+  loading?: boolean;
+}
+```
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## Accessibility
+
+Every component is built to **WCAG 2.1 AA**:
+
+- All interactive elements are keyboard-navigable (`Tab`, `Enter`, `Escape`)
+- Focus rings are visible on `:focus-visible`
+- Form inputs link labels via `htmlFor` / `id`
+- Status badges use semantic text (not color alone)
+- Modal traps focus and restores it on close
+- Progress bars use `role="progressbar"` with `aria-valuenow`
+- Use the **Accessibility** tab in this Storybook to run an automated axe audit on any story
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## Browser Support
+
+| Browser | Version |
+|---------|---------|
+| Chrome | 90+ |
+| Firefox | 88+ |
+| Safari | 14+ |
+| Edge | 90+ |
+
+Requires React 18+.
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+## Versioning
+
+This package follows [Semantic Versioning](https://semver.org/):
+
+- **Patch** `0.1.x` — bug fixes, no API changes
+- **Minor** `0.x.0` — new components or props, fully backwards compatible
+- **Major** `x.0.0` — breaking changes (announced in advance)
+
+A full changelog is maintained in the GitHub repository.
+
+<hr style={{ border: 'none', borderTop: '1px solid #e0e0e0', margin: '32px 0' }} />
+
+<div style={{ background: '#f2f2f2', borderRadius: '8px', padding: '20px 24px', fontSize: '14px', color: '#4a4a4a' }}>
+  <strong>Questions or issues?</strong><br />
+  Open an issue on the GitHub repository or reach out to the Henkel DX team.
+</div>
+
+</div>
