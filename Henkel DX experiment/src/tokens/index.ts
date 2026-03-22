@@ -1,0 +1,61 @@
+export const tokens = {
+  color: {
+    brand: {
+      black: '#000000',
+      white: '#ffffff',
+      warmGrey: '#f5f0eb',
+      henkelRed: '#e2001a',
+      darkBlue: '#003669',
+      brightBlue: '#0085c7',
+      softBlue: '#e8f4fb',
+      softLightBlue: '#f0f8fd',
+    },
+    neutral: {
+      grey700: '#4a4a4a',
+      grey500: '#8a8a8a',
+      grey100: '#f2f2f2',
+      softBlueDark: '#cce5f5',
+    },
+    feedback: {
+      orange: '#f5a623',
+      orangeDark: '#c8800a',
+      orangeLight: '#fef3e0',
+      successGreen: '#27ae60',
+      successLight: '#e8f8ee',
+      errorRed: '#eb5757',
+      errorLight: '#fdeaea',
+    },
+  },
+  spacing: {
+    1: '0.125rem',
+    2: '0.25rem',
+    3: '0.5rem',
+    4: '0.625rem',
+    5: '0.75rem',
+    6: '1rem',
+    7: '1.25rem',
+    8: '1.5rem',
+    9: '2rem',
+    10: '2.5rem',
+    11: '3rem',
+    12: '4rem',
+  },
+  borderRadius: {
+    xs: '0.25rem',
+    sm: '0.375rem',
+    md: '0.5rem',
+    lg: '0.75rem',
+    xl: '1rem',
+    full: '9999px',
+  },
+  fontSize: {
+    h1: '2rem',
+    h2: '1.5rem',
+    h3: '1.25rem',
+    body: '1rem',
+    label: '0.875rem',
+    caption: '0.75rem',
+  },
+} as const;
+
+export type Tokens = typeof tokens;
