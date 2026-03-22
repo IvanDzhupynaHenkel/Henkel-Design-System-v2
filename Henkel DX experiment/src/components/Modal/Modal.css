@@ -1,0 +1,118 @@
+/* ─── Overlay ────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--spacing-8);
+  animation: modal-fade-in var(--transition-base);
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Dialog ─────────────────────────────── */
+.modal {
+  background-color: var(--color-surface-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 640px;
+  max-height: calc(100vh - var(--spacing-12));
+  display: flex;
+  flex-direction: column;
+  animation: modal-slide-up var(--transition-base);
+}
+
+@keyframes modal-slide-up {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ─── Header ─────────────────────────────── */
+.modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-6);
+  padding: var(--spacing-8) var(--spacing-8) var(--spacing-6);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.modal__header-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.modal__title {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.modal__subtitle {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.modal__close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.modal__close:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-primary);
+}
+
+.modal__close:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+}
+
+/* ─── Stepper in header ──────────────────── */
+.modal__stepper {
+  padding: var(--spacing-5) var(--spacing-8);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+/* ─── Body ───────────────────────────────── */
+.modal__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-8);
+}
+
+/* ─── Footer ─────────────────────────────── */
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-5);
+  padding: var(--spacing-6) var(--spacing-8);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.modal__footer--spaced {
+  justify-content: space-between;
+}
