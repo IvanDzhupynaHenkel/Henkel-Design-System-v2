@@ -1,0 +1,48 @@
+.hds-tab-nav {
+  display: inline-flex;
+}
+
+.hds-tab-nav__track {
+  display: flex;
+  align-items: center;
+  background-color: #d7dbe0;
+  border-radius: 32px;
+  padding: 0;
+  height: 64px;
+}
+
+.hds-tab-nav__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 64px;
+  padding: 20px 24px;
+  border: none;
+  border-radius: 32px;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Henkel GT Flexa', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #161616;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  min-width: 160px;
+}
+
+.hds-tab-nav__tab:hover:not(.hds-tab-nav__tab--active) {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.hds-tab-nav__tab--active {
+  background-color: #ffffff;
+  color: #e1000f;
+  font-weight: 500;
+}
+
+.hds-tab-nav__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
