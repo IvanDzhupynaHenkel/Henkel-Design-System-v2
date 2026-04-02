@@ -1,0 +1,74 @@
+.hds-input {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.hds-input__label {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #6c7884;
+  pointer-events: none;
+}
+
+.hds-input__required {
+  color: #e1000f;
+}
+
+.hds-input__field {
+  width: 100%;
+  background-color: #f1f3f7;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px 6px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #161616;
+  outline: none;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hds-input__field::placeholder {
+  color: #6c7884;
+}
+
+.hds-input--focused .hds-input__field {
+  background-color: #e8eaef;
+  box-shadow: 0 0 0 2px #e1000f;
+}
+
+.hds-input--error .hds-input__field {
+  box-shadow: 0 0 0 2px #e1000f;
+  background-color: #fff0f1;
+}
+
+.hds-input--disabled .hds-input__field {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hds-input--disabled .hds-input__label {
+  opacity: 0.4;
+}
+
+.hds-input__error {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  color: #e1000f;
+  margin-top: 2px;
+}
+
+.hds-input__hint {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  color: #6c7884;
+  margin-top: 2px;
+}

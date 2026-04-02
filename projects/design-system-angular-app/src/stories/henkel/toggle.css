@@ -1,0 +1,62 @@
+.hds-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hds-toggle--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hds-toggle__track {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 32px;
+  border-radius: 100px;
+  background-color: #d7dbe0;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.hds-toggle__track:focus-visible {
+  outline: 2px solid #e1000f;
+  outline-offset: 2px;
+}
+
+.hds-toggle__track--on {
+  background-color: #e1000f;
+}
+
+.hds-toggle__handle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: left 0.2s ease;
+}
+
+.hds-toggle__track--on .hds-toggle__handle {
+  left: calc(100% - 28px);
+}
+
+.hds-toggle__label {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #161616;
+  line-height: 20px;
+}
+
+.hds-toggle--disabled .hds-toggle__label {
+  color: #6c7884;
+}

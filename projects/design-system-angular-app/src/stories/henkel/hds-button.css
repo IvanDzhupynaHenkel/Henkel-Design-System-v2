@@ -1,0 +1,79 @@
+.hds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  font-family: 'Henkel GT Flexa', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 12px 24px;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.hds-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.hds-button--primary {
+  background-color: #e1000f;
+  color: #ffffff;
+}
+
+.hds-button--primary:hover:not(:disabled) {
+  background-color: #c0000d;
+}
+
+.hds-button--secondary {
+  background-color: #ffffff;
+  color: #e1000f;
+  box-shadow: 0 0 0 1.5px #e1000f inset;
+}
+
+.hds-button--secondary:hover:not(:disabled) {
+  background-color: #fff0f1;
+}
+
+.hds-button--ghost {
+  background-color: transparent;
+  color: #e1000f;
+}
+
+.hds-button--ghost:hover:not(:disabled) {
+  background-color: rgba(225, 0, 15, 0.06);
+}
+
+/* Sizes */
+.hds-button--sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.hds-button--lg {
+  padding: 16px 32px;
+  font-size: 17px;
+}
+
+/* Icon-only (no label) */
+.hds-button:not(:has(.hds-button__label)) {
+  padding: 12px;
+  border-radius: 28px;
+  width: 48px;
+  height: 48px;
+}
+
+.hds-button__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.hds-button__label {
+  /* inherits font from parent */
+}
