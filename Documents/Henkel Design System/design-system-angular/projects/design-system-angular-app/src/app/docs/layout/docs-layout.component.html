@@ -1,0 +1,42 @@
+<div class="layout">
+
+  <!-- ── Sidebar ──────────────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand__mark">H</span>
+      <span class="brand__text">Henkel DS</span>
+    </div>
+
+    <nav class="nav">
+      <p class="nav__section">Getting Started</p>
+      @for (item of gettingStarted; track item.slug) {
+        <a
+          class="nav__item"
+          [routerLink]="['/getting-started', item.slug]"
+          routerLinkActive="nav__item--active"
+        >
+          <i class="pi {{ item.icon }} nav__icon"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      }
+
+      <p class="nav__section">Components</p>
+      @for (item of components; track item.slug) {
+        <a
+          class="nav__item"
+          [routerLink]="['/components', item.slug]"
+          routerLinkActive="nav__item--active"
+        >
+          <i class="pi {{ item.icon }} nav__icon"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+  </aside>
+
+  <!-- ── Main ─────────────────────────────────────────────────────── -->
+  <main class="main">
+    <router-outlet />
+  </main>
+
+</div>
