@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd design-system-angular && npm install && npm run build-storybook",
+  "outputDirectory": "design-system-angular/storybook-static",
+  "installCommand": "echo 'install handled by buildCommand'"
+}
